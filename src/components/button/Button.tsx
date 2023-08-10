@@ -12,7 +12,7 @@ const Button: FC<InputPropTypes> = (props) => {
   const { value, onClick } = props;
 
   return (
-    <div className='input'>
+    <div className='button'>
       {/* <label>{label}</label> */}
       <button onClick={onClick}>{value}</button>
     </div>

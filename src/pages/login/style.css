@@ -54,6 +54,11 @@
     border: 1px solid gray;
 }
 
+.input label {
+    font-size: small;
+}
+
+
 .login_form input{
     width: 100%;
 }
@@ -64,4 +69,9 @@
     color: white;
     height: 35px;
     width: 100%;
+}
+
+.error-message{
+    color: red;
+    font-size: medium;
 }
