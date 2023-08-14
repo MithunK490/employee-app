@@ -1,0 +1,13 @@
+.labelValuePair {
+    width: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  justify-content: space-evenly;
+  height: 50%;
+}
+
+    
+.label {
+    color: #8B8D9D;
+}

@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  height: 77px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 99;
+}
+
+.image {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 45px;
+  height: 77px;
+}
+
+.image img {
+  width: 208px;
+  height: 45px;
+}
+
+.empty {
+  height: 7777pxpx;
+}

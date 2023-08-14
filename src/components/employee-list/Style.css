@@ -1,0 +1,50 @@
+.employeeList {
+  height: 100px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 0 30px;
+}
+
+.heading {
+  width: 304px;
+  height: 32px;
+  text-align: left;
+  font: normal normal bold 24px/32px Nunito Sans;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+  flex-grow: 1;
+}
+
+.filter{
+  display: flex;
+}
+
+.filterBy {
+  top: 130px;
+  left: 1307px;
+  width: 82px;
+  height: 24px;
+  text-align: left;
+  font: normal normal normal 18px/24px Nunito Sans;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}
+
+.status {
+  top: 126px;
+  left: 1389px;
+  width: 161px;
+  height: 31px;
+  background: #eaf9ff 0% 0% no-repeat padding-box;
+  border-radius: 50px;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  margin-right: 2em;
+}
+
+

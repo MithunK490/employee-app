@@ -1,20 +1,20 @@
 import type { FC } from 'react';
+import './Style.css';
 
-type InputPropTypes = {
+export type ButtonPropTypes = {
+  type?: 'button' | 'submit';
   value: string;
-  onClick: () => void;
-  // label: string;
-  //   placeholder: string;
-  //   type: 'text' | 'password';
+  onClick?: () => void;
 };
 
-const Button: FC<InputPropTypes> = (props) => {
-  const { value, onClick } = props;
+const Button: FC<ButtonPropTypes> = (props) => {
+  const { value, onClick, type } = props;
 
   return (
     <div className='button'>
-      {/* <label>{label}</label> */}
-      <button onClick={onClick}>{value}</button>
+      <button type={type} onClick={onClick} data-testid='button-test'>
+        {value}
+      </button>
     </div>
   );
 };

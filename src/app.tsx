@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import './styles/global.css';
 import Login from './pages/login/login';
-import Employees from './pages/employees/employees';
+import Employees from './pages/employees/Employees';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 const App: FC = () => {
@@ -10,7 +10,7 @@ const App: FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path='/login' element={<Login />} />
-          <Route path='/employees' element={<Employees />} />
+          <Route path='/employees/*' element={<Employees />} />
         </Routes>
       </BrowserRouter>
     </div>

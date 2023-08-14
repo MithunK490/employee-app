@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import './Style.css';
 
 type InputPropTypes = {
   value: string;

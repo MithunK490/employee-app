@@ -25,16 +25,16 @@ const Login = () => {
 
   return (
     <div className='login'>
-      <section className='login_section'>
-        <div className='column_left'>
-          <img src='../../../assets/img/banner.png' alt='kv-login' />
-        </div>
-        <div className='column_right'>
-          <div>
-            <div className='kv-logo'>
-              <img src='../../../assets/img/kv-logo.png' alt='kv-logo' />
-            </div>
-            <div className='login_form'>
+      <div className='column_left'>
+        <img src='../../../assets/img/banner.png' alt='kv-login' />
+      </div>
+      <div className='column_right'>
+        <div>
+          <div className='kv-logo'>
+            <img src='../../../assets/img/kv-logo.png' alt='kv-logo' />
+          </div>
+          <div className='login_form'>
+            <div>
               <Input
                 label='Username'
                 type='text'
@@ -42,7 +42,13 @@ const Login = () => {
                 value={username}
                 onChange={handleUsername}
               />
-
+            </div>
+            <div className='error'>
+              {showError && (
+                <div className='error-message'>Username and/or Password is emplty!</div>
+              )}
+            </div>
+            <div>
               <Input
                 label='Password'
                 type='password'
@@ -50,13 +56,18 @@ const Login = () => {
                 value={password}
                 onChange={handlePassword}
               />
-
-              <Button value='Login In' onClick={handleClick} />
-              {showError && <div className='error-message'>Provide username and password</div>}
+            </div>
+            <div className='error'>
+              {showError && (
+                <div className='error-message'>Username and/or Password is emplty!</div>
+              )}
+            </div>
+            <div>
+              <Button type='button' value='Login In' onClick={handleClick} />
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
