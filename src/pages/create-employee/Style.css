@@ -1,3 +1,43 @@
 .header{
+    display: flex;
+    height: 100px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 99;
+    border-radius: 10px;
+    align-items: center;
+    font: normal normal bold 24px/32px Nunito Sans;
+    padding-left: 20px;
+
+}
+
+.createEmployeeForm{
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.inputFields{
+    display: flex;
+    flex-wrap: wrap;
+    gap:2em;
+    padding:30px;
     
+}
+
+.inputFields>div{
+    width: 450px;
+}
+
+.buttons{
+    display: flex;
+    padding-left: 2em;
+    padding-bottom: 30px;
+}
+
+.button{
+    width: 150px;
+    height: 35px;
+    padding-right: 5px;
 }

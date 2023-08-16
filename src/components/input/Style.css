@@ -1,4 +1,4 @@
-/* .input{
+.input{
     display: flex;
     flex-direction: column;
 }
@@ -14,4 +14,4 @@
 
 .input label{
     font-size: small;
-} */
+}

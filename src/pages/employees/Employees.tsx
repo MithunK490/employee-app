@@ -4,10 +4,11 @@ import Header from '../../components/header/Header';
 import ListItem from '../../components/list-item/ListItem';
 import Navigation from '../../components/navigation/navigation';
 import './Style.css';
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import Employee from '../employee/Employee';
 import CreateEmployee from '../create-employee/createEmployee';
 import EditEmployee from '../edit-employee/EditEmployee';
+import { useSelector } from 'react-redux';
 const headings = [
   'Employee Name',
   'Employee id',
@@ -18,7 +19,13 @@ const headings = [
   'Action'
 ];
 
-const Employees = () => {
+const Employees: React.FC = () => {
+  const employeesData = useSelector((state: any) => {
+    return state.employees;
+  });
+
+  console.log(employeesData);
+
   return (
     <div className='employees'>
       <Header />
@@ -37,36 +44,19 @@ const Employees = () => {
                         <div key={item}>{item}</div>
                       ))}
                     </div>
-
-                    <ListItem
-                      employeeName='Vishal'
-                      employeeId='XYZ'
-                      joiningDate='20-03-2010'
-                      role='Full Stack'
-                      experience='5 Years'
-                      action='Action'
-                      status={true}
-                    />
-
-                    <ListItem
-                      employeeName='Vishal'
-                      employeeId='XYZ'
-                      joiningDate='20-03-2010'
-                      role='Full Stack'
-                      experience='5 Years'
-                      action='Action'
-                      status={true}
-                    />
-
-                    <ListItem
-                      employeeName='Vishal'
-                      employeeId='XYZ'
-                      joiningDate='20-03-2010'
-                      role='Full Stack'
-                      experience='5 Years'
-                      action='Action'
-                      status={false}
-                    />
+                    <div>
+                      {employeesData.map((item) => (
+                        <ListItem
+                          key={item.employeeId}
+                          employeeName={item.employeeName}
+                          employeeId={item.employeeId}
+                          joiningDate={item.joiningDate}
+                          role={item.role}
+                          experience={item.experience}
+                          status={item.status}
+                        />
+                      ))}
+                    </div>
                   </table>
                 </Fragment>
               }
