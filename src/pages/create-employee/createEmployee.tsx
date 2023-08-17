@@ -4,6 +4,7 @@ import './Style.css';
 import Button from '../../components/button/Button';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import addEmployee from '../../actions/employeeAction';
 
 const CreateEmployee = () => {
   const [name, setName] = useState('');
@@ -17,37 +18,15 @@ const CreateEmployee = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const employeeCreateActionCreator = ({
-    name,
-    joiningDate,
-    role,
-    experience,
-    address,
-    department
-  }) => {
-    return {
-      type: 'EMPLOYEE:CREATE',
-      payload: {
-        employeeName: name,
+  const handleSubmit = () => {
+    dispatch(
+      addEmployee({
         employeeId: 'ABC',
+        employeeName: name,
         joiningDate,
         role,
         experience,
         status: true,
-        address,
-        department,
-        action: 'action'
-      }
-    };
-  };
-
-  const handleSubmit = () => {
-    dispatch(
-      employeeCreateActionCreator({
-        name,
-        joiningDate,
-        role,
-        experience,
         address,
         department
       })

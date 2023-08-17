@@ -1,14 +1,16 @@
 import Input from '../../components/input/Input';
 import Button from '../../components/button/Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './style.css';
 import { useNavigate } from 'react-router-dom';
+import { useLoginMutation } from './api';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showError, setShowError] = useState(false);
 
+  const [login, { data, isSuccess }] = useLoginMutation();
   const handleUsername = (event) => {
     setUsername(event.target.value);
   };
@@ -17,11 +19,17 @@ const Login = () => {
     setPassword(event.target.value);
   };
   const handleClick = () => {
-    if (username && password) navigate('/employees');
+    if (username && password) login({ email: username, password });
     else setShowError(true);
   };
-
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (data && isSuccess) {
+      localStorage.setItem('AuthToken', data.data.token);
+      navigate('/employees');
+    }
+  }, [data, isSuccess]);
 
   return (
     <div className='login'>

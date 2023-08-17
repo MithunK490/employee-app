@@ -1,3 +1,6 @@
+import { createReducer } from '@reduxjs/toolkit';
+import addEmployee from '../actions/employeeAction';
+
 const initialstate = [
   {
     employeeName: 'Vinu',
@@ -28,19 +31,27 @@ const initialstate = [
   }
 ];
 
-const employeeReducer = (state = initialstate, action) => {
-  switch (action.type) {
-    case 'EMPLOYEE:CREATE': {
-      const newState = [...state, action.payload];
+const employeeReducer = createReducer(initialstate, (builder) => {
+  builder.addCase(addEmployee, (state, action) => {
+    state = [...state, action.payload];
 
-      return newState;
-    }
-    case 'EMPLOYEE:DELETE': {
-      return state.filter((obj) => obj.id !== action.payload.employeeId);
-    }
-    default:
-      return state;
-  }
-};
+    return state;
+  });
+});
+
+// const employeeReducer = (state = initialstate, action) => {
+//   switch (action.type) {
+//     case 'EMPLOYEE:CREATE': {
+//       const newState = [...state, action.payload];
+
+//       return newState;
+//     }
+//     case 'EMPLOYEE:DELETE': {
+//       return state.filter((obj) => obj.id !== action.payload.employeeId);
+//     }
+//     default:
+//       return state;
+//   }
+// };
 
 export default employeeReducer;
