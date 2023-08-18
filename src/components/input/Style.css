@@ -1,0 +1,17 @@
+/* .input{
+    display: flex;
+    flex-direction: column;
+}
+
+.input Input {
+    margin-top: 5px;
+    height: 35px;
+    border-radius: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+    border: 1px solid gray;
+  }
+
+.input label{
+    font-size: small;
+} */
