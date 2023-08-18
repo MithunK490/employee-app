@@ -19,8 +19,13 @@ const Login = () => {
     setPassword(event.target.value);
   };
   const handleClick = () => {
-    if (username && password) login({ email: username, password });
-    else setShowError(true);
+    if (username && password) {
+      console.log('loging in...');
+
+      login({ email: username, password });
+    } else {
+      setShowError(true);
+    }
   };
   const navigate = useNavigate();
 

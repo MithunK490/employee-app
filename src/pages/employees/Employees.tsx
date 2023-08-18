@@ -4,11 +4,11 @@ import Header from '../../components/header/Header';
 import ListItem from '../../components/list-item/ListItem';
 import Navigation from '../../components/navigation/navigation';
 import './Style.css';
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Employee from '../employee/Employee';
-import CreateEmployee from '../create-employee/createEmployee';
-import EditEmployee from '../edit-employee/EditEmployee';
-import { useSelector } from 'react-redux';
+import EmployeeForm from '../employee-form/employeeForm';
+// import { useSelector } from 'react-redux';
+import { useGetEmployeeListQuery } from './api';
 const headings = [
   'Employee Name',
   'Employee id',
@@ -20,9 +20,19 @@ const headings = [
 ];
 
 const Employees: React.FC = () => {
-  const employeesData = useSelector((state: any) => {
-    return state.employees;
-  });
+  // const employeesData = useSelector((state: any) => {
+  //   return state.employees;
+  // });
+
+  const [employeesData, setEmployeesData] = useState([]);
+  const { data, isSuccess } = useGetEmployeeListQuery('');
+
+  useEffect(() => {
+    if (data && isSuccess) {
+      setEmployeesData(data);
+      console.log(employeesData);
+    }
+  }, [data, isSuccess]);
 
   console.log(employeesData);
 
@@ -47,9 +57,9 @@ const Employees: React.FC = () => {
                     <div>
                       {employeesData.map((item) => (
                         <ListItem
-                          key={item.employeeId}
-                          employeeName={item.employeeName}
-                          employeeId={item.employeeId}
+                          key={item.id}
+                          employeeName={item.name}
+                          employeeId={item.id}
                           joiningDate={item.joiningDate}
                           role={item.role}
                           experience={item.experience}
@@ -73,15 +83,15 @@ const Employees: React.FC = () => {
               path='/create'
               element={
                 <Fragment>
-                  <CreateEmployee />
+                  <EmployeeForm />
                 </Fragment>
               }
             ></Route>
             <Route
-              path='/edit'
+              path='/edit/:id'
               element={
                 <Fragment>
-                  <EditEmployee />
+                  <EmployeeForm />
                 </Fragment>
               }
             ></Route>

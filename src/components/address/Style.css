@@ -1,0 +1,18 @@
+.address{
+    display: flex;
+    flex-direction: column;
+}
+
+.address label{
+    font-size: small;
+}
+
+.address input{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    height: 35px;
+    border-radius: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+    border: 1px solid gray;
+}

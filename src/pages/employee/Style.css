@@ -13,4 +13,5 @@
   display: flex;
   flex-wrap: wrap;
   border-radius: 5px;
+  padding-left: 34px;
 }
